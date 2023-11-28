@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Vocali
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+{% include 'components/navbar.html' %}
+
+<div class="container">
+    <h1 class="text-center fw-bold text-decoration-underline text-primary">Creator Registration Form</h1>
+    
+    <form id="creator-form" class="creator-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}{{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Register as creator</button>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

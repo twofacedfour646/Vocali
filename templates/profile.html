@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Vocali
+{% endblock %}
+
+{% block body %}
+{% include 'components/navbar.html' %}
+
+<div style="position: relative;">
+    <div class="jumbotron py-5">
+        <!-- Banner -->
+        <div class="banner" style="background: url('{{ user.profile.banner }}') center center"></div>
+        
+        <!-- Greeting text/edit banner -->
+        <div class="container">
+            <h1 class='fw-bold'>Hello <span class="text-primary">{{ user.username }}</span></h1>
+            <p class='fw-bold'>This is your profile page. You can set up what you want your <br />fans to see and track your earnings.</p>
+
+            <button class="btn btn-primary">Edit Banner</button>
+        </div>
+    </div>
+
+    <div class="user-info container">
+        <div class="row flex-lg-row gx-3 mb-4 flex-column-reverse">
+            <div class="basic-info col-lg-8 col-12">
+                <div class="bg-light rounded border" style="height: 43em;">
+                    <div class="account-header rounded-top border-bottom d-flex justify-content-between bg-white p-4">
+                        <h3>My Account</h3>
+                        <button class="btn btn-primary disabled">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="adv-info col-12 col-lg-4">
+                <div class="bg-white border rounded p-4 mb-4" style="position: relative; height: 43em;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {% include 'components/footer.html' %} -->
+
+{% endblock %}

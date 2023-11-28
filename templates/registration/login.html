@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Vocali Login
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<div style="min-height: 80vh;">
+  {% include 'components/navbar.html' %}
+
+  <div class="container">
+    <h1 class="text-center fw-bold text-decoration-underline" style="color: #05668D;">Login</h1>
+    
+    <div class="login-content justify-content-evenly">
+        <form id="login-form" class="login-form" method="post">
+          {% csrf_token %}{{ form|crispy }}
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+        <!-- <div class="loader d-none"></div> -->
+
+        <img src="{% static 'assets/login.svg' %}" class="login-img"/>
+    </div>
+  </div>
+</div>
+
+{% include 'components/footer.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

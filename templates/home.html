@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Vocali
+{% endblock %}
+
+
+{% block body %}
+{% include 'components/navbar.html' %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success container mt-3 alert-dismissible" role="alert">
+            <span>{{ message }}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="mt-5">
+    <div class="home-jumbo pb-5">
+        <div class="jumbotron container py-5">
+            <div class="pb-5 pt-2 d-flex flex-column flex-xl-row justify-content-between">
+                <img src="{% static 'assets/landing.png' %}" class="rounded-circle home-img col-xl-4 col-12"/>
+
+                <div class="text-end col-xl-8 col-12 ps-5 home-text">
+                    <h1 class="display-4 fw-bold">Welcome, <span class="text-primary">{{user.username}}</span>!</h1>
+                    <p class="lead display-6">Custom voice requests from your favorite voice over artists!</p>
+                    
+                    <hr class="my-4 me-5"/>
+                    
+                    <p class="fw-bold fs-5">Access thousands of voice actors and request a personalized <br/> voice request for any occasion.</p>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-5 container">
+        <div class="mt-4">
+            <h2 class="card-header">Animation</h2>
+
+            <div class="mt-4 d-flex justify-content-evenly">
+                
+                {% for creator in creators %}
+                    <div class="border rounded text-center mx-auto mb-xl-0 mb-5 bg-white">
+                        <div class="d-flex justify-content-center mt-3">
+                            <img src="{{ creator.avatar }}" class="creator-ad-img" alt="">
+                        </div>
+
+                        <div class="card-body my-3">
+                            <h5 class="card-title fw-bold mb-2">{{ creator.user.first_name }} {{ creator.user.last_name }}</h5>
+                            <p class="card-text" style="max-width: 350px; margin: auto;">
+                                {% if creator.bio|length > 78 %}
+                                {{ creator.bio|slice:":78" }}...
+                                {% else %}
+                                {{ creator.bio }}
+                                {% endif %}
+                            </p>
+
+                            <a href="{% url 'creator_detail' pk=creator.id %}">
+                                <button class="btn btn-primary my-3">Book {{ creator.user.first_name }} {{ creator.user.last_name }}</button>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="d-flex justify-content-center mt-5">
+                <nav>
+                    <ul class="pagination">
+                      {% if creators.has_previous %}
+                      <li class="page-item"><a class="page-link" href="?page={{ creators.previous_page_number }}">Previous</a></li>
+                      {% endif %}
+                    
+                      {% for i in creators.paginator.page_range %}
+                        {% if creators.number == i %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %} 
+    
+                      {% if creators.has_next %}
+                      <li class="page-item"><a class="page-link" href="?page={{ creators.next_page_number }}">Next</a></li>
+                      {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'components/footer.html' %}
+</div>
+{% endblock %}

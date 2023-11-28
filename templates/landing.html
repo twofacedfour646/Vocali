@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Vocali
+{% endblock %}
+
+{% block body %}
+<div style="min-height: 80vh;">
+    {% include 'components/navbar.html' %}
+    <div class="jumbotron container py-5">
+        <div class="pb-5 pt-2 d-flex justify-content-between">
+            <div class="home-text">
+                <h1 class="display-3 fw-bold">Welcome to <span style="color: #05668D">Gublr</span>!</h1>
+                <p class="lead display-6">Custom voice requests from your favorite voice over artists!</p>
+                
+                <hr class="my-4 me-5"/>
+                
+                <p class="fw-bold fs-5">Access thousands of voice actors and request a personalized <br/> voice request for any occasion.</p>
+                <a href="{% url 'login' %}">
+                    <button class="btn landing-btn btn-secondary">Get Started</button>
+                </a>
+            </div>
+
+            <img src="{% static 'assets/landing.png' %}" class="rounded-circle home-img"/>
+        </div>
+    </div>
+</div>
+
+{% include "components/footer.html" %}
+{% endblock %}
