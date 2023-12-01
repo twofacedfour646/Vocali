@@ -11,4 +11,4 @@ class VocalRequest(models.Model):
     datePosted = models.DateField()
 
     def __str__(self) -> str:
-        return super().__str__()
+        return self.body

@@ -1,6 +1,6 @@
 from typing import Any
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, CreatorForm
+from .forms import RegistrationForm, CreatorForm, ReviewForm
 from django.contrib.auth import login
 from vocali.settings import storage
 from django.contrib.auth.decorators import login_required
@@ -19,6 +19,7 @@ class CreatorDetailView(DetailView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context["form"] = RequestForm(instance=self.object)
+        context["reviewForm"] = ReviewForm(instance=self.object)
         return context
     
     def post(self, request, *args, **kwargs):

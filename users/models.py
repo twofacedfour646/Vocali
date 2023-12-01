@@ -14,3 +14,12 @@ class Profile(models.Model):
 
     earnings = models.FloatField()
     price = models.FloatField()
+
+
+class Review(models.Model):
+    body = models.TextField()
+
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sent_reviews")
+    receiver = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="received_reviews")
+
+    rating = models.IntegerField()

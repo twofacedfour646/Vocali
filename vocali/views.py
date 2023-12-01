@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from users.models import Profile
+from vocal_requests.models import VocalRequest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -12,6 +13,7 @@ def landing(request):
 
 @login_required
 def home(request):
+    # Get all creators in 3 creator intervals
     creator_list = Profile.objects.all()
 
     creators_per_page = 3
