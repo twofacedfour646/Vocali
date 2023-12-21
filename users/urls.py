@@ -5,5 +5,6 @@ urlpatterns = [
     path("signup/", views.signUp, name="Signup"),
     path("creator/form/", views.creatorForm, name="creator_form"),
     path("profile/", views.profileView, name="profile"),
-    path("creator/<int:pk>/", views.CreatorDetailView.as_view(), name="creator_detail")
+    path("creator/<int:pk>/", views.CreatorDetailView.as_view(), name="creator_detail"),
+    path("delete/review/<int:pk>/", views.deleteReview, name="delete_review")
 ]

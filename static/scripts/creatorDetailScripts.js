@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('.toast').toast();
     const stars = $(".star");
     const ratingInput = $("#id_rating");
 
@@ -6,14 +7,13 @@ $(document).ready(function() {
       const selectedRating = $(this).data("value");
       ratingInput.val(selectedRating);
 
-      console.log(ratingInput[0].value);
-
       // Reset all stars to grey
-      stars.removeClass("selected");
+      stars.removeClass("star-selected");
 
       // Highlight selected stars
       for (let i = 1; i <= selectedRating; i++) {
-        $(`.star[data-value="${i}"]`).addClass("selected");
+        $(`.star[data-value="${i}"]`).addClass("star-selected");
       }
     });
+
 });

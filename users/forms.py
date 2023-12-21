@@ -27,7 +27,7 @@ class CreatorForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-    body = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "What is your voice request?", "rows": 10}), label="")
+    body = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "Review body", "rows": 5}), label="")
     rating = forms.IntegerField(widget=forms.NumberInput(attrs={'type': 'range', 'min': '1', 'max': '5', 'step': '1', 'hidden': True}))
 
     class Meta:

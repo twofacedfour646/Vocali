@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Vocali
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="d-flex">
+    {% include 'components/sidebar.html' %}
+
+    <div class="feed" style="flex: 0.8; background-color: white;">
+        
+        <h1>{{ request }}</h1>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+
+{% endblock %}

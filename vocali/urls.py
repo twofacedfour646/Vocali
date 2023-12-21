@@ -20,6 +20,7 @@ from . import views
 
 urlpatterns = [
     path("", include("users.urls")),
+    path("", include("vocal_requests.urls")),
     path("", include("django.contrib.auth.urls")),
     path("", views.landing, name="Landing"),
     path("home/", views.home, name="Home"),

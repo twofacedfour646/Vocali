@@ -8,18 +8,18 @@ Vocali
 {% block body %}
 {% include 'components/navbar.html' %}
 
-<div style="position: relative;">
-    <div class="jumbotron py-5">
+<div>
+    <div class="jumbotron" style="width: 100vw; height: 30vh;">
         <!-- Banner -->
         <div class="banner" style="background: url('{{ user.profile.banner }}') center center"></div>
-        
-        <!-- Greeting text/edit banner -->
-        <div class="container">
-            <h1 class='fw-bold'>Hello <span class="text-primary">{{ user.username }}</span></h1>
-            <p class='fw-bold'>This is your profile page. You can set up what you want your <br />fans to see and track your earnings.</p>
+    </div>
 
-            <button class="btn btn-primary">Edit Banner</button>
-        </div>
+    <!-- Greeting text/edit banner -->
+    <div class="container">
+        <h1 class='fw-bold'>Hello <span class="text-primary">{{ user.username }}</span></h1>
+        <p class='fw-bold'>This is your profile page. You can set up what you want your <br />fans to see and track your earnings.</p>
+
+        <button class="btn btn-primary">Edit Banner</button>
     </div>
 
     <div class="user-info container">
@@ -34,7 +34,7 @@ Vocali
             </div>
 
             <div class="adv-info col-12 col-lg-4">
-                <div class="bg-white border rounded p-4 mb-4" style="position: relative; height: 43em;"></div>
+                <div class="bg-white border rounded p-4 mb-4" style="height: 43em;"></div>
             </div>
         </div>
     </div>
