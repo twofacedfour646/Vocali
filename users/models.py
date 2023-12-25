@@ -23,4 +23,4 @@ class Review(models.Model):
     receiver = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="received_reviews")
 
     rating = models.IntegerField()
-    datePosted = models.DateField(null=True)
+    datePosted = models.DateTimeField(null=True)

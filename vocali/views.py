@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from users.models import Profile
 from vocal_requests.models import VocalRequest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from users.forms import SearchForm
+from django.contrib.auth.models import User
 
 def landing(request):
     if request.user.is_authenticated:
@@ -32,5 +33,11 @@ def home(request):
 
 @login_required
 def searchView(request):
-    creators = Profile.objects.all()[:5]
-    return render(request, "search.html", {"creators": creators})
+    results = Profile.objects.all()[:5]
+    form = SearchForm(request.GET)
+    
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        results = User.objects.filter(username__icontains=query)
+
+    return render(request, "search.html", {"creators": results, "form": form})

@@ -4,6 +4,12 @@
     font-family: Quicksand;
 }
 
+label[for]:required::before {
+    content: '*';
+    color: transparent;
+    display: none;
+}
+
 /* Scrollbar customization */
 /* width */
 ::-webkit-scrollbar {
@@ -59,7 +65,7 @@
 }
 
 .modal-dialog {
-    min-width: 40vw !important;
+    min-width: 50vw !important;
 }
 
 
@@ -139,6 +145,10 @@
     background-attachment: fixed;
     background-size: cover;
     height: 75vh;
+}
+
+.creator-ad {
+    width: 30%;
 }
 
 .creator-ad-img {
@@ -294,6 +304,11 @@ svg {
 /* End of search form */
 
 /* Creator detail view */
+.bio-btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .creator-detail-banner {
     max-height: 25vh;
     width: 100%;

@@ -44,7 +44,7 @@ class CreatorDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["form"] = RequestForm(instance=self.object)
         context["reviewForm"] = ReviewForm(instance=self.object)
-        context["myReviews"] = Review.objects.filter(receiver=self.get_object())
+        context["myReviews"] = Review.objects.filter(receiver=self.get_object()).order_by("-datePosted")
         context["creator_update_form"] = CreatorForm(instance=self.object)
         return context
     

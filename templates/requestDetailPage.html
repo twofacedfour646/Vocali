@@ -12,8 +12,9 @@ Vocali
     {% include 'components/sidebar.html' %}
 
     <div class="feed" style="flex: 0.8; background-color: white;">
-        
-        <h1>{{ request }}</h1>
+        <div class="jumbotron">
+            <img src="{{ request.receiver.banner }}" class="creator-detail-banner" alt=""/>
+        </div>
     </div>
 </div>
 

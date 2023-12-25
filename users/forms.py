@@ -33,3 +33,7 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ["body", "rating"]
+        
+        
+class SearchForm(forms.Form):
+    query = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'search-field', 'placeholder': 'Search'}))

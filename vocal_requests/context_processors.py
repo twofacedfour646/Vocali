@@ -6,6 +6,8 @@ def navbar_context(request):
     # Add your specific context for the navbar
     # Get all incoming requests if user is a creator
     currentCreatorsRequests = None
+    mySentRequests = None
+    
     if request.user.is_authenticated:
         if Profile.objects.filter(user=request.user).exists():
             currentCreatorsRequests = VocalRequest.objects.filter(receiver=request.user.profile)
